@@ -5,23 +5,23 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: biosys-uat.dbca.wa.gov.au
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: biosys-clusterip-uat
-            port:
-              number: 8080
-  - host: biosys-admin-uat.dbca.wa.gov.au
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: biosys-clusterip-uat
-            port:
-              number: 8080
+    - host: biosys-uat.dbca.wa.gov.au
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: biosys-clusterip-uat
+                port:
+                  number: 8080
+    - host: biosys-admin-uat.dbca.wa.gov.au
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: biosys-clusterip-uat
+                port:
+                  number: 8080

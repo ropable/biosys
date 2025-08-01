@@ -6,25 +6,30 @@ spec:
   template:
     spec:
       containers:
-      - name: biosys
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: biosys-env-uat
-              key: DATABASE_URL
-        - name: EMAIL_HOST
-          valueFrom:
-            secretKeyRef:
-              name: biosys-env-uat
-              key: EMAIL_HOST
-        - name: HERBIE_SPECIES_WFS_URL
-          valueFrom:
-            secretKeyRef:
-              name: biosys-env-uat
-              key: HERBIE_SPECIES_WFS_URL
-        - name: SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: biosys-env-uat
-              key: SECRET_KEY
+        - name: biosys
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: biosys-env-uat
+                  key: DATABASE_URL
+            - name: EMAIL_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: biosys-env-uat
+                  key: EMAIL_HOST
+            - name: HERBIE_SPECIES_WFS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: biosys-env-uat
+                  key: HERBIE_SPECIES_WFS_URL
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: biosys-env-uat
+                  key: SECRET_KEY
+      tolerations:
+        - effect: NoSchedule
+          key: kubernetes.azure.com/scalesetpriority
+          operator: Equal
+          value: spot
